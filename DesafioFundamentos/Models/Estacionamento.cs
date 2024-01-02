@@ -16,7 +16,33 @@ namespace DesafioFundamentos.Models
         {
             // TODO: Pedir para o usuário digitar uma placa (ReadLine) e adicionar na lista "veiculos"
             // *IMPLEMENTE AQUI*
-            Console.WriteLine("Digite a placa do veículo para estacionar:");
+            Console.WriteLine("-------------------------------------------------\n");
+            Console.WriteLine("Digite a placa do veículo para estacionar: \n");
+            string placa = "";
+            placa = Console.ReadLine().Trim().ToUpperInvariant();
+            // Verifica se a placa já foi adicionada anteriormente
+            if (veiculos.Contains(placa))
+            {
+                Console.WriteLine($"Esta placa {placa} já foi adicionada anteriormente. Por favor, insira uma placa diferente.\n");
+            }
+            else
+            {
+                // Verifica se a entrada da placa é válida (não vazia)
+                if (!string.IsNullOrEmpty(placa))
+                {
+                    // Adiciona a placa à lista de veículos
+                    veiculos.Add(placa);
+
+                    // Confirmação para o usuário
+                    Console.WriteLine($"Veículo com a placa {placa} adicionado com sucesso!\n");
+                }
+                else
+                {
+                    // Mensagem de erro se a placa for vazia
+                    Console.WriteLine("Placa inválida. Certifique-se de inserir uma placa válida.\n");
+                }
+            }
+
         }
 
         public void RemoverVeiculo()
@@ -26,7 +52,7 @@ namespace DesafioFundamentos.Models
             // Pedir para o usuário digitar a placa e armazenar na variável placa
             // *IMPLEMENTE AQUI*
             string placa = "";
-
+            placa = Console.ReadLine();
             // Verifica se o veículo existe
             if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
             {
@@ -35,8 +61,8 @@ namespace DesafioFundamentos.Models
                 // TODO: Pedir para o usuário digitar a quantidade de horas que o veículo permaneceu estacionado,
                 // TODO: Realizar o seguinte cálculo: "precoInicial + precoPorHora * horas" para a variável valorTotal                
                 // *IMPLEMENTE AQUI*
-                int horas = 0;
-                decimal valorTotal = 0; 
+                //int horas = 0;
+                decimal valorTotal = 0;
 
                 // TODO: Remover a placa digitada da lista de veículos
                 // *IMPLEMENTE AQUI*
